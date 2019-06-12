@@ -1,0 +1,11 @@
+- Comfy::Cms::Site.first.pages.root.children.published.each do |page| 
+  - if page.children.any?
+    %li.nav-item.dropdown
+      %a.nav-link.dropdown-toggle{id: "dropdown-#{page.id}", aria: { expanded: 'true', haspopup: "true" }, "data-toggle" => "dropdown" }= page.label
+      .dropdown-menu{"aria-labelledby" => "dropdown-#{page.id}"}
+        - page.children.each  do |child|
+          %a.dropdown-item{ href: child.full_path }= child.label
+  - else
+    %li.nav-item
+      %a.nav-link{ href:  page.full_path }= page.label
+
