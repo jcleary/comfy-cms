@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Myapp
+module Comfy
   class Application < Rails::Application
     # Ensuring that ActiveStorage routes are loaded before Comfy's globbing
     # route. Without this file serving routes are inaccessible.
