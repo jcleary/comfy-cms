@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+  root to: 'comfy/cms/content#show'
+
   comfy_route :cms_admin, path: "/admin/cms"
   # Ensure that this route is defined last
   comfy_route :cms, path: "/"
