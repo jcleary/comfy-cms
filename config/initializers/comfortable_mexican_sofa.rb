@@ -79,7 +79,7 @@ ComfortableMexicanSofa.configure do |config|
 
   # Reveal partials that can be overwritten in the admin area.
   # Default is false.
-  #   config.reveal_cms_partials = false
+  config.reveal_cms_partials = false
   #
   # Customize the returned content json data
   # include fragments in content json
@@ -88,18 +88,13 @@ ComfortableMexicanSofa.configure do |config|
   #   }
 end
 
-# Default credentials for ComfortableMexicanSofa::AccessControl::AdminAuthentication
-# YOU REALLY WANT TO CHANGE THIS BEFORE PUTTING YOUR SITE LIVE
-ComfortableMexicanSofa::AccessControl::AdminAuthentication.username = "username"
-ComfortableMexicanSofa::AccessControl::AdminAuthentication.password = "password"
-
- # Uncomment this module and `config.admin_auth` above to use custom admin authentication
- module ComfyAdminAuthentication
-   def authenticate
-     return if user_signed_in?
-     redirect_to new_user_session_path
-   end
- end
+# Uncomment this module and `config.admin_auth` above to use custom admin authentication
+module ComfyAdminAuthentication
+  def authenticate
+    return if user_signed_in?
+    redirect_to new_user_session_path
+  end
+end
 
 # Uncomment this module and `config.admin_authorization` above to use custom admin authorization
 # module ComfyAdminAuthorization
